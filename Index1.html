@@ -15,7 +15,8 @@
         <!-- <link rel="stylesheet" href="style.css"> -->
         <script src="https://kit.fontawesome.com/049c186ce9.js" crossorigin="anonymous"></script>
         <script src="script1.js" defer></script>
-        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"></script>
     </head>
     <style>
         body {
@@ -25,7 +26,7 @@
             background-color: rgb(23, 23, 23);
         }
 
-        #animation_container{
+        #animation_container {
             background-color: white;
             display: flex;
             align-items: center;
@@ -46,43 +47,64 @@
 
         @keyframes startup_animation {
             0% {
-                transform: translate(0px, 0px) scale(0, 0) ;
+                transform: translate(0px, 0px) scale(0, 0);
             }
-            
+
             100% {
                 display: none;
                 visibility: hidden;
                 transform: translate(100px, 100px) scale(1000, 1000);
             }
-            to{
+
+            to {
                 visibility: hidden;
                 width: 0;
                 height: 0;
                 display: none;
             }
         }
-        dotlottie-player{
+
+        dotlottie-player {
             animation: startup_animation 3000ms 1 ease-in 4000ms;
         }
-        .main_container{
+
+        #main_container {
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 213, 0, 0.512);
+            display: none;
+        }
+
+        #main_container video {
+            width: auto;
+            height: 100%;
         }
     </style>
 
     <body>
         <div id="animation_container">
             <div id="element">
-                <dotlottie-player src="https://lottie.host/197c801c-2f1c-450f-908e-e58eb5cb3857/gcNddPui7y.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></dotlottie-player>
+                <dotlottie-player src="https://lottie.host/197c801c-2f1c-450f-908e-e58eb5cb3857/gcNddPui7y.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></dotlottie-player>
             </div>
         </div>
-        <div class="main_container">
-
+        <div id="main_container">
+            <aside>
+                <nav>
+                    <header>
+                        
+                    </header>
+                </nav>
+            </aside>
         </div>
         <script>
             setTimeout(() => {
                 document.getElementById("animation_container").style.display = "none"
+                // document.getElementById("main_container").style.display = "block"
+                // let video = document.createElement("video");
+                // video.setAttribute("id","background_video");
+                // video.setAttribute("src","assets/main.mp4")
+                // document.getElementById("main_container").appendChild(video);
+                // video.autoplay = true;
             }, 4000);
         </script>
     </body>
