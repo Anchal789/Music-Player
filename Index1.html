@@ -23,12 +23,12 @@
             margin: 0;
             height: 100vh;
             overflow: hidden;
-            background-color: rgb(23, 23, 23);
         }
 
         #animation_container {
             background-color: white;
-            display: flex;
+            display: none;
+            /* Please Make it flex */
             align-items: center;
             justify-content: center;
             height: 100vh;
@@ -71,12 +71,40 @@
         #main_container {
             width: 100vw;
             height: 100vh;
-            display: none;
+            display: block;
+            /* Make it none */
+            background: rgb(7, 0, 36);
+            background: linear-gradient(16deg, rgba(7, 0, 36, 1) 0%, rgba(121, 9, 107, 1) 35%, rgba(0, 191, 218, 1) 100%);
         }
 
         #main_container video {
             width: auto;
             height: 100%;
+        }
+
+        .logo_name {
+            text-shadow: 0px 10px 10px rgb(164, 164, 164);
+        }
+
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo_name {
+            padding-left: 10%;
         }
     </style>
 
@@ -88,24 +116,30 @@
             </div>
         </div>
         <div id="main_container">
-            <aside>
+            <header>
                 <nav>
-                    <header>
-                        
-                    </header>
+                    <a href="" class="logo_name">
+                        <h1>Music Player</h1>
+                    </a>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Trending</a></li>
+                        <li><a href="">Playlist</a></li>
+                    </ul>
+                    <div class="">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
                 </nav>
-            </aside>
+            </header>
         </div>
         <script>
-            setTimeout(() => {
-                document.getElementById("animation_container").style.display = "none"
-                // document.getElementById("main_container").style.display = "block"
-                // let video = document.createElement("video");
-                // video.setAttribute("id","background_video");
-                // video.setAttribute("src","assets/main.mp4")
-                // document.getElementById("main_container").appendChild(video);
-                // video.autoplay = true;
-            }, 4000);
+            // setTimeout(() => {
+            //     document.getElementById("animation_container").style.display = "none"
+            //     document.getElementById("main_container").style.display = "block"
+            // }, 4000);
         </script>
     </body>
 
