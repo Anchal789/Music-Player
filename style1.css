@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+#animation_container {
+    background-color: white;
+    display: none;
+    /* display flex */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#element {
+    animation: startup_animation 3000ms 1 ease-in 3000ms;
+    background-color: rgb(0, 0, 0);
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    animation-fill-mode: forwards;
+}
+
+@keyframes startup_animation {
+    0% {
+        transform: translate(0px, 0px) scale(0, 0);
+    }
+
+    100% {
+        display: none;
+        visibility: hidden;
+        transform: translate(100px, 100px) scale(1000, 1000);
+    }
+
+    to {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        display: none;
+    }
+}
+
+@keyframes startup_text {
+    0% {
+        transform: translate(100px, 100px) scale(4000, 4000);
+    }
+
+    100% {
+        transform: translate(0px, 0px) scale(0, 0);
+    }
+
+}
+
+.starting_lottiefile {
+    animation: startup_animation 3000ms 1 ease-in 4000ms;
+}
+
+#main_container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    /* Make display none */
+    background: linear-gradient(16deg, rgba(7, 0, 36, 1) 0%, rgba(121, 9, 107, 1) 35%, rgba(0, 191, 218, 1) 100%);
+    position: absolute;
+    overflow: hidden;
+}
+
+#main_container video {
+    width: auto;
+    height: 100%;
+}
+
+header {
+    position: relative;
+}
+
+.logo_name {
+    text-shadow: 0px 10px 10px rgb(164, 164, 164);
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar_lg {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(19, 19, 19, 0.942);
+    flex-direction: column;
+    width: 120px;
+    height: 100vh;
+    position: fixed;
+}
+
+.logo_name {
+    padding-left: 10%;
+}
+
+li {
+    list-style: none;
+}
+
+.nav_menu {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navbar_sm {
+    display: none;
+}
+
+.fa-magnifying-glass {
+    color: white;
+}
+
+.page_icon {
+    font-size: x-large;
+    padding: 10px;
+}
+
+.search_container_lg {
+    margin: 0 0 0 120px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app_download {
+    width: 100%;
+    height: 47px;
+    background: linear-gradient(45deg, rgba(88, 187, 234, 1) 0%, rgba(113, 191, 153, 1) 50%, rgba(145, 205, 97, 1) 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.search_input {
+    border: 1px solid black !important;
+    width: fit-content;
+    margin: 20px 0 10px 0;
+}
+
+.download_btn {
+    margin-left: 40px;
+    background-color: rgb(246, 241, 22);
+    height: inherit;
+    color: black;
+}
+
+.download_btn:hover {
+    background-color: rgb(246, 22, 97);
+    color: white;
+}
+
+.download_btn a {
+    color: rgb(0, 0, 0);
+}
+
+.download_btn a:hover {
+    color: wheat;
+}
+
+#background_container {
+    margin-left: 120px;
+    position: absolute;
+    top: 0;
+    background: url("assets/maxresdefault-removebg.png"), linear-gradient(90deg, rgba(7, 0, 36, 0.7) 0%, rgba(121, 9, 107, 0.7) 35%, rgba(0, 191, 218, 0.7) 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover;
+    /* background-blend-mode: screen; */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.startup_text {
+    font-family: cursive;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    animation: startup_text 2000ms 1 ease-in 0ms;
+}
+
+.top_200_songs_btn {
+    animation: startup_text 2000ms 1 ease-in 0ms;
+}
+
+footer {
+    width: 100%;
+    margin-left: 80px;
+    bottom: 0;
+    position: fixed;
+    color: wheat;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width : 1054px) {
+    .app_download {
+        text-align: start;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width : 702px) {
+    .app_download {
+        text-align: start;
+        font-size: 0.8rem;
+        display: flex;
+    }
+}
+
+@media screen and (max-width : 576px) {
+    .navbar_lg {
+        display: none;
+        grid-template-columns: auto auto auto;
+        width: 100%;
+        height: 80px;
+    }
+
+    .search_container {
+        flex-direction: row;
+        width: min-content;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .search_container input {
+        width: 80px;
+        margin: 0 10px 0 10px;
+    }
+
+    .logo_animation {
+        width: 70px;
+    }
+
+    .nav_menu {
+        display: flex;
+        margin: 0 !important;
+        justify-content: space-around;
+        width: 50%;
+        flex-direction: inherit;
+    }
+
+    .nav_menu li {
+        padding: 7px;
+    }
+
+    .navbar_sm {
+        display: block;
+        padding: 0;
+    }
+
+    .navbar-collapse {
+        display: flex;
+    }
+
+    .bg-transparent {
+        background: none;
+        border: none;
+    }
+
+    .search_container_lg {
+        display: none;
+    }
+
+    #background_container {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        background: url("assets/maxresdefault-removebg.png"), linear-gradient(16deg, rgba(7, 0, 36, 0.7) 0%, rgba(121, 9, 107, 0.7) 35%, rgba(0, 191, 218, 0.7) 100%);
+        background-repeat: no-repeat, no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .startup_text {
+        margin-top: 50%;
+        font-family: cursive;
+        color: rgb(255, 255, 255);
+        font-weight: bolder;
+    }
+
+    footer h4 {
+        display: none;
+    }
+
+    #play_song {
+        width: 100%;
+    }
+}

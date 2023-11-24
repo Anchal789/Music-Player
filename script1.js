@@ -54,6 +54,7 @@ async function api() {
         // const result = await response.json();
 
         // console.log(result);
+        
     } catch (error) {
         console.error(error);
     }

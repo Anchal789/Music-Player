@@ -12,135 +12,101 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
-        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="style1.css">
         <script src="https://kit.fontawesome.com/049c186ce9.js" crossorigin="anonymous"></script>
         <script src="script1.js" defer></script>
         <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"></script>
     </head>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        #animation_container {
-            background-color: white;
-            display: none;
-            /* Please Make it flex */
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        #element {
-            animation: startup_animation 3000ms 1 ease-in 3000ms;
-            background-color: rgb(0, 0, 0);
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgb(0, 0, 0);
-            border-radius: 50%;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes startup_animation {
-            0% {
-                transform: translate(0px, 0px) scale(0, 0);
-            }
-
-            100% {
-                display: none;
-                visibility: hidden;
-                transform: translate(100px, 100px) scale(1000, 1000);
-            }
-
-            to {
-                visibility: hidden;
-                width: 0;
-                height: 0;
-                display: none;
-            }
-        }
-
-        dotlottie-player {
-            animation: startup_animation 3000ms 1 ease-in 4000ms;
-        }
-
-        #main_container {
-            width: 100vw;
-            height: 100vh;
-            display: block;
-            /* Make it none */
-            background: rgb(7, 0, 36);
-            background: linear-gradient(16deg, rgba(7, 0, 36, 1) 0%, rgba(121, 9, 107, 1) 35%, rgba(0, 191, 218, 1) 100%);
-        }
-
-        #main_container video {
-            width: auto;
-            height: 100%;
-        }
-
-        .logo_name {
-            text-shadow: 0px 10px 10px rgb(164, 164, 164);
-        }
-
-        .container-fluid {
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .logo_name {
-            padding-left: 10%;
-        }
-    </style>
 
     <body>
         <div id="animation_container">
             <div id="element">
                 <dotlottie-player src="https://lottie.host/197c801c-2f1c-450f-908e-e58eb5cb3857/gcNddPui7y.json"
-                    background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></dotlottie-player>
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" class="starting_lottiefile"
+                    autoplay></dotlottie-player>
             </div>
         </div>
         <div id="main_container">
+            <div id="background_container">
+                <!-- <img src="assets/background.jpg" id="background_image" alt=""> -->
+                <h1 class="text-xxl-center startup_text">Live the #Moment</h1>
+                <button class="btn bg-light btn-outline-warning text-dark fw-bold rounded-4 top_200_songs_btn" onclick="latestTracks()">Latest</button>
+            </div>
             <header>
-                <nav>
+                <nav class="navbar_lg">
                     <a href="" class="logo_name">
-                        <h1>Music Player</h1>
+                        <dotlottie-player src="https://lottie.host/5e038968-6ed3-4b5f-8610-75431e1d3306/yFWvhdbEbg.json"
+                            background="transparent" speed="1" loop class="logo_animation" autoplay></dotlottie-player>
                     </a>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Trending</a></li>
-                        <li><a href="">Playlist</a></li>
+                    <ul class="nav_menu">
+                        <li title="Home"><a href=""><i class="fa-solid fa-house page_icon"></i>Home</a></li>
+                        <li title="Trending"><a href=""><i class="fa-solid fa-fire page_icon"></i></a></li>
+                        <li title="Playlist"><a href=""><i class="fa-solid fa-bars-staggered page_icon"></i></a></li>
                     </ul>
-                    <div class="">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                </nav>
+                <form class="search_container_lg">
+                    <div class="app_download">
+                        Download the Spotify App from here!<button class="btn download_btn"><a
+                                href="https://download.scdn.co/SpotifySetup.exe">Download</a></button></div>
+                    <input class="form-control me-2 border-dark search_input" type="search" placeholder="Search"
+                        aria-label="Search" title="search">
+                    <button class="btn btn-outline-success btn-danger text-light" type="submit">Search</button>
+                </form>
+                <nav class="navbar navbar_sm navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a href="" class="logo_name navbar-brand">
+                            <dotlottie-player
+                                src="https://lottie.host/5e038968-6ed3-4b5f-8610-75431e1d3306/yFWvhdbEbg.json"
+                                background="transparent" speed="1" loop class="logo_animation"
+                                autoplay></dotlottie-player>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav_menu navbar-nav me-auto mb-2 mb-lg-0">
+                                <li title="Home" class="nav-item">
+                                    <a href="" class="nav-link active"><i class="fa-solid fa-house"></i></a>
+                                </li>
+                                <li title="Trending" class="nav-item">
+                                    <a href="" class="nav-link active"><i class="fa-solid fa-fire"></i></a>
+                                </li>
+                                <li title="Playlist" class="nav-item">
+                                    <a href="" class="nav-link active"><i class="fa-solid fa-bars-staggered"></i></a>
+                                </li>
+                            </ul>
+                            <form class="search_container d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                    title="search">
+                                <button type="submit" class="bg-transparent"><i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="app_download">Download the Spotify App from here!<button class="btn download_btn">
+                            <a href="https://download.scdn.co/SpotifySetup.exe">
+                                Download
+                            </a>
+                        </button>
                     </div>
                 </nav>
             </header>
         </div>
         <script>
-            // setTimeout(() => {
-            //     document.getElementById("animation_container").style.display = "none"
-            //     document.getElementById("main_container").style.display = "block"
-            // }, 4000);
+            setTimeout(() => {
+                document.getElementById("animation_container").style.display = "none";
+                document.getElementById("main_container").style.display = "block";
+            }, 4000);
+            
+            function latestTracks(){
+                document.getElementById("background_container").style.display = "none"
+            }
+
         </script>
+      
     </body>
 
 </html>
