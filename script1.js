@@ -40,24 +40,23 @@
 //     }
 // })();
 
-async function api() {
-    const url = 'https://spotify81.p.rapidapi.com/top_200_tracks';
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'e8e6be8f26msh184e850f85d34e7p1ef79ajsn2279494dc8ec',
-            'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
-        }
-    };
-    try {
-        // const response = await fetch(url, options);
-        // const result = await response.json();
+// async function api() {
+//     const url = 'https://spotify81.p.rapidapi.com/top_200_tracks';
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Key': 'e8e6be8f26msh184e850f85d34e7p1ef79ajsn2279494dc8ec',
+//             'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
+//         }
+//     };
+//     try {
+//         // const response = await fetch(url, options);
+//         // const result = await response.json();
 
-        // console.log(result);
-        
-    } catch (error) {
-        console.error(error);
-    }
-}
+//         // console.log(result);
 
-api();
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
