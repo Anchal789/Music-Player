@@ -51,15 +51,16 @@
                         <li title="Playlist"><a href=""><i class="fa-solid fa-bars-staggered page_icon"></i></a></li>
                     </ul>
                 </nav>
-                <form class="search_container_lg">
+                <form class="search_container_lg" id="search_container_lg">
                     <div class="app_download">
                         Download the Spotify App from here!<button class="btn download_btn"><a
                                 href="https://download.scdn.co/SpotifySetup.exe">Download</a></button></div>
-                    <input class="form-control me-2 border-dark search_input" id="search_input" type="search"
+                    <input class="form-control me-2 border-dark search_input" id="search_input" type="text"
                         placeholder="Search" aria-label="Search" title="search">
                     <button class="btn btn-outline-success btn-danger text-light" id="search_btn"
                         type="submit">Search</button>
                 </form>
+
                 <nav class="navbar navbar_sm navbar-expand-lg navbar-dark bg-dark">
                     <div class="container-fluid">
                         <a href="" class="logo_name navbar-brand">
@@ -85,7 +86,7 @@
                                     <a href="" class="nav-link active"><i class="fa-solid fa-bars-staggered"></i></a>
                                 </li>
                             </ul>
-                            <form class="search_container d-flex">
+                            <form class="search_container d-flex" id="search_container_sm">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                                     title="search">
                                 <button type="submit" class="bg-transparent"><i
@@ -101,6 +102,9 @@
                     </div>
                 </nav>
             </header>
+            <ul id="search_results">
+
+            </ul>
             <div id="latest_songs_page">
                 <div class="main_track_container">
                     <div class="title_country">
@@ -175,13 +179,48 @@
             let playlistItems = document.getElementById('playlist-items');
             let audioPlayer = document.getElementById('audio-player');
             let currentSong = 0;
+            let formLg = document.getElementById("search_container_lg");
+            let formSm = document.getElementById("search_container_sm");
 
             setTimeout(() => {
                 document.getElementById("animation_container").style.display = "none";
                 document.getElementById("main_container").style.display = "block";
             }, 4000);
 
+            formLg.addEventListener("submit", async (event) => {
+                event.preventDefault();
+                let search_input = document.getElementById("search_input").value;
+                const url = `https://spotify81.p.rapidapi.com/search?q=${search_input}&type=tracks&offset=10&limit=10&numberOfTopResults=10`;
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': 'e8e6be8f26msh184e850f85d34e7p1ef79ajsn2279494dc8ec',
+                        'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
+                    }
+                };
 
+                const response = await fetch(url, options);
+                const result = await response.json();
+
+                for (let i = 0; i < result.tracks.length; i++) {
+                    let li = document.createElement("li");
+                    li.setAttribute("class", "searchResultListItems");
+                    let trackInfoContainer = document.createElement("div");
+                    trackInfoContainer.setAttribute("class", "trackInfoContainer");
+                    let searchResultImage = document.createElement("img");
+                    searchResultImage.setAttribute("class", "searchResultImage");
+                    searchResultImage.src = `${result.tracks[i].data.albumOfTrack.coverArt.sources[2].url}`;
+                    let searchResultTrackName = document.createElement("p");
+                    searchResultTrackName.textContent = `${result.tracks[i].data.name}`;
+                    let searchResultAlbumName = document.createElement("p");
+                    searchResultAlbumName.textContent = `${result.tracks[i].data.albumOfTrack.name}`;
+                    trackInfoContainer.appendChild(searchResultImage);
+                    trackInfoContainer.appendChild(searchResultTrackName);
+                    trackInfoContainer.appendChild(searchResultAlbumName);
+                    li.appendChild(trackInfoContainer);
+                    document.getElementById("search_results").appendChild(li);
+                }
+            })
 
             let countrys = ["GLOBAL", "AR", "AU", "AT", "BY", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", " DO", "EC", "EG", "SV", "EE", "FI", "FR", "DE", "GR", "GT", "HN", "HK", "HU", "IS", "IN", "ID", "IE", "IL", "IT", "JP", "KZ", "LV", "LT", "LU", "MY", "MX", "MA", "NL", "NZ", "NI", "NG", "NO", "PK", "PA", "PY", "PE", "PH", "PL", "PT", "RO", "SA", "SG", "SK", "ZA", "KR", "ES", "SE", "CH", "TW", "TH", "AE", "TR", "UA", "GB", "UY", "US", "VE", "VN"]
             let country_select_element = document.getElementById("country_select");
@@ -317,7 +356,7 @@
 
 
             async function topTracks() {
-                let tracksData = await top_200_songs();
+                // let tracksData = await top_200_songs();
                 if (tracksData.status_code === 404) {
                     document.getElementById("top_songs_container").style.display = "block"
                     document.getElementById("top_songs_container").innerHTML = '<div id="error"><h1 class="error_animation">Something Went Wrong</h1></div>';
@@ -387,7 +426,7 @@
             }
 
             async function playlistTrack() {
-                let playlistData = await playlists();
+                // let playlistData = await playlists();
                 if (playlistData.status_code === 404) {
                     document.getElementById("playlists").style.display = "block"
                     document.getElementById("playlists").innerHTML = '<div id="error"><h1 class="error_animation">Something Went Wrong</h1></div>';
@@ -482,7 +521,7 @@
                 playlistItems.innerHTML = '';
                 currentPlaylist.forEach((song, index) => {
                     const conatiner = document.createElement("div");
-                    conatiner.setAttribute("class","custom_playlist_container");
+                    conatiner.setAttribute("class", "custom_playlist_container");
                     const listItem = document.createElement('li');
                     listItem.classList.add('playlist-item');
 
@@ -490,18 +529,18 @@
                     const image = document.createElement('img');
                     image.src = song.image;
                     image.alt = song.name
-                    image.setAttribute("class","custom_playlist_image");
+                    image.setAttribute("class", "custom_playlist_image");
                     conatiner.appendChild(image);
 
                     // Song name
                     const songName = document.createElement('h5');
                     songName.textContent = song.name;
-                    songName.setAttribute("class","custom_playlist_song_name");
+                    songName.setAttribute("class", "custom_playlist_song_name");
                     conatiner.appendChild(songName);
 
                     // Add a delete button for each song in the playlist
                     const deleteButton = document.createElement('button');
-                    deleteButton.setAttribute("class",'delete-button btn btn-danger');
+                    deleteButton.setAttribute("class", 'delete-button btn btn-danger');
                     deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
                     deleteButton.onclick = () => deleteFromPlaylist(index);
                     listItem.appendChild(conatiner);
@@ -548,6 +587,7 @@
                 document.getElementById("search_btn").style.display = "block"
                 topTracks();
                 playlistTrack();
+                audioPlayer.focus();
             }
 
             dragElement(document.getElementById("mydiv"));
@@ -585,6 +625,8 @@
                     document.onmousemove = null;
                 }
             }
+
+
 
         </script>
 

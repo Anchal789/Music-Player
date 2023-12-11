@@ -537,6 +537,16 @@ audio::-webkit-media-controls-overflow-button::menu {
     font-size: 1rem;
 }
 
+#search_results{
+    margin-top: 146px;
+    position: absolute;
+    z-index: 100;
+    overflow: scroll;
+}
+
+.searchResultImage{
+    width: 50px;
+}
 
 
 @media screen and (max-width : 1054px) {
