@@ -12,42 +12,40 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style1.css">
+        <!-- <link rel="stylesheet" href="style1.css"> -->
         <script src="https://kit.fontawesome.com/049c186ce9.js" crossorigin="anonymous"></script>
-        <script src="script1.js" defer></script>
+        <!-- <script src="script1.js" defer></script> -->
         <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"></script>
         <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
     </head>
 
     <body>
-        <div id="mydiv">
-            <div id="mydivheader">Click here to move</div>
-            <div class="card" style="width: 18rem;">
-                <img id="song_cover_image" class="card-img-top" src="" alt="">
-                <h5 class="card-title" id="song_name"></h5>
-                <div class="card-body">
-                    <a href="" id="full_version">Listen on Spotify</a>
-                    <audio src="" id="song_player" autoplay controls></audio>
-
-                </div>
-            </div>
-            <div class="accordion accordion-flush w-100" id="accordionFlushExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Accordion Item #1
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate
-                            the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+            data-bs-placement="top" data-bs-content="Top popover">
+            Popover on top
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+            data-bs-placement="right" data-bs-content="Right popover">
+            Popover on right
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+            data-bs-placement="bottom" data-bs-content="Bottom popover">
+            Popover on bottom
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+            data-bs-placement="left" data-bs-content="Left popover">
+            Popover on left
+        </button>
     </body>
+
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+    </script>
+
 
 </html>

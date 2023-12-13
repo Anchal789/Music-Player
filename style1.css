@@ -9,8 +9,8 @@ html {
 
 #animation_container {
     background-color: white;
-    display: none;
-    /* display flex */
+    /* display: none; */
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -64,10 +64,11 @@ html {
 #main_container {
     width: 100vw;
     height: 100vh;
-    display: block;
+    display: none;
     /* Make display none */
     background: linear-gradient(16deg, rgba(7, 0, 36, 1) 0%, rgba(121, 9, 107, 1) 35%, rgba(0, 191, 218, 1) 100%);
     position: absolute;
+    justify-content: center;
 }
 
 #main_container video {
@@ -78,6 +79,7 @@ html {
 header {
     width: 100%;
     position: fixed;
+    z-index: 1000;
 }
 
 .logo_name {
@@ -158,12 +160,13 @@ li {
 .search_input {
     display: none;
     border: 1px solid black !important;
-    width: fit-content;
-    margin: 60px 0 10px 0;
+    width: 300px;
+    margin: 60px 0 0 0;
 }
 
 #search_btn {
     display: none;
+    margin-bottom: 100px;
 }
 
 .download_btn {
@@ -223,6 +226,7 @@ li {
     position: fixed;
     overflow: scroll;
     margin-top: 150px;
+    z-index: 0;
 }
 
 #error {
@@ -240,6 +244,11 @@ li {
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.8);
+}
+
+.nav_menu li{
+    margin: 10px;
+    padding: 2px;
 }
 
 .modalContent {
@@ -538,16 +547,77 @@ audio::-webkit-media-controls-overflow-button::menu {
 }
 
 #search_results{
-    margin-top: 146px;
-    position: absolute;
-    z-index: 100;
+    display: none;
     overflow: scroll;
+    background: white;
+    width: 300px;
+    padding: 0;
+}
+
+#search_results_sm{
+    display: none;
+    overflow: scroll;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    z-index: 10000;
+    padding: 10px;
+}
+
+.searchbar_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.trackInfoContainer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: fit-content;
+}
+
+.trackInfoContainer_sm {
+    display: flex;
+}
+
+.searchResultListItems{
+    margin: 10px;
+}
+
+.searchResultListItems_sm {
+    margin: 10px;
 }
 
 .searchResultImage{
     width: 50px;
 }
 
+.searchResultImage_sm{
+    width: 30px;
+}
+
+.searchResultTrackName{
+    width: 100%;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+.searchResultTrackName_sm{
+    width: 50%;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+#close_search_result{
+    width: min-content;
+    display: none;
+}
+
+#close_search_result_sm{
+    display: none;
+}
 
 @media screen and (max-width : 1054px) {
     .app_download {
@@ -656,6 +726,10 @@ audio::-webkit-media-controls-overflow-button::menu {
         justify-content: center;
         align-items: center;
 
+    }
+
+    .search_input {
+        width: min-content;
     }
 
     .search_container input {
