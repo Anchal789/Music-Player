@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Stalicc Player</title>
-        <link rel="shortcut icon" href="Untitled design.png" type="image/x-icon">
+        <title>Music Player</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -15,46 +14,135 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/049c186ce9.js" crossorigin="anonymous"></script>
         <script src="script.js" defer></script>
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"></script>
+        <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
     </head>
 
+    <style>
+
+    </style>
+
     <body>
-        <div>
-            <nav class="navbar navbar-expand-sm">
-                <div class="container-fluid">
-                    <a class="navbar-brand logo">
-                        <img src="favicon.png" width="30%" alt="Stallic">Stallic</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                            <li class="nav-item">
-                                <a onclick="" class="nav-link mainPlayListBtn" aria-current="page" href="#">Playlist</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Queue</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link">About Us</a>
-                            </li>
+        <div id="animation_container">
+            <div id="element">
+                <dotlottie-player src="https://lottie.host/197c801c-2f1c-450f-908e-e58eb5cb3857/gcNddPui7y.json"
+                    background="transparent" speed="1" style="width: 300px; height: 300px;" class="starting_lottiefile"
+                    autoplay></dotlottie-player>
+            </div>
+        </div>
+        <div id="main_container">
+            <div id="background_container">
+                <h1 class="text-xxl-center startup_text">Live the #Moment</h1>
+                <button class="btn bg-light btn-outline-warning text-dark fw-bold rounded-4 top_200_songs_btn"
+                    onclick="listenNow()">Listen Now</button>
+            </div>
+            <header>
+                <nav class="navbar_lg">
+                    <a href="" class="logo_name">
+                        <dotlottie-player src="https://lottie.host/5e038968-6ed3-4b5f-8610-75431e1d3306/yFWvhdbEbg.json"
+                            background="transparent" speed="1" loop class="logo_animation" autoplay></dotlottie-player>
+                    </a>
+                    <ul class="nav_menu">
+                        <li title="Custom Playlist"><button type="button" title="Custom Playlist"
+                                class="btn btn-danger" data-bs-container="body" data-bs-toggle="popover"
+                                data-bs-placement="top" data-bs-content="Coming Soon">
+                                <i class="fa-brands fa-playstation"></i>
+                            </button></li>
+                        <li title="User"><button type="button" title="User" class="btn btn-danger" data-bs-container="body"
+                                data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Coming Soon">
+                                <i class="fa-solid fa-user"></i>
+                            </button></li>
+                    </ul>
+                </nav>
+                <form class="search_container_lg" id="search_container_lg">
+                    <div class="app_download">
+                        Download the Spotify App from here!<button class="btn download_btn">
+                            <a href="https://download.scdn.co/SpotifySetup.exe">Download
+                            </a>
+                        </button>
+                    </div>
+                    <div class="searchbar_container" id="searchbar_container">
+                        <input class="form-control border-dark search_input" id="search_input" type="text"
+                            placeholder="Search" aria-label="Search" title="search">
+                        <button id="close_search_result" type="button" class="btn btn-light"><i
+                                class="fa-solid fa-circle-xmark"></i></button>
+                        <ul id="search_results">
+
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                    </div>
+                    <button class="btn btn-outline-success btn-danger text-light" id="search_btn"
+                        type="submit">Search</button>
+                </form>
+
+                <nav class="navbar navbar_sm navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a href="" class="logo_name navbar-brand">
+                            <dotlottie-player
+                                src="https://lottie.host/5e038968-6ed3-4b5f-8610-75431e1d3306/yFWvhdbEbg.json"
+                                background="transparent" speed="1" loop class="logo_animation"
+                                autoplay></dotlottie-player>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav_menu navbar-nav me-auto mb-2 mb-lg-0">
+                                <li title="Custom Playlist"><button type="button" title="Custom Playlist"
+                                    class="btn btn-danger" 
+                                    data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Coming Soon">
+                                    <i class="fa-brands fa-playstation"></i>
+                                </button></li>
+                            <li title="User"><button type="button" title="User" class="btn btn-danger" 
+                                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Coming Soon">
+                                    <i class="fa-solid fa-user"></i>
+                                </button></li>
+                            </ul>
+                            <form class="search_container d-flex" id="search_container_sm">
+                                <div class="search_container_sm">
+                                    <input class="form-control me-2" id="search_input_sm" type="search"
+                                        placeholder="Search" aria-label="Search" title="search">
+                                    <button id="close_search_result_sm" type="button" class="btn btn-light"><i
+                                            class="fa-solid fa-circle-xmark"></i></button>
+                                    <ul id="search_results_sm">
+
+                                    </ul>
+                                </div>
+
+                                <button type="submit" class="bg-transparent" id="search_btn_sm"><i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="app_download">Download the Spotify App from here!<button class="btn download_btn">
+                            <a href="https://download.scdn.co/SpotifySetup.exe">
+                                Download
+                            </a>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+
+            <div id="latest_songs_page">
+                <div class="main_track_container">
+                    <div class="title_country">
+                        <h3 class="text-white">Top 200 Songs</h3>
+                        <select id="country_select" onChange="myFunction(this.options[this.selectedIndex].value)">
+
+                        </select>
                     </div>
 
-                </div>
-            </nav>
-            <br>
+                    <div id="top_songs_container">
 
-            <div>
+                    </div>
+                </div>
+
                 <div id="myModal" class="modal">
                     <div class="modal-content modalContent">
                         <span class="close close">&times;</span>
-                        <div class="TracksDiv">
+                        <div class="playlist_tracks">
                             <ul id="listOfSongs">
 
                             </ul>
@@ -62,38 +150,53 @@
                     </div>
                 </div>
 
+                <div class="main_track_container">
+                    <h3>Playlists</h3>
+                    <div id="playlists">
 
+                    </div>
+                </div>
+
+                <div id="mydiv">
+                    <div id="mydivheader">Click here to move</div>
+                    <div class="card" style="width: 18rem;">
+                        <img id="song_cover_image" class="card-img-top" src="" alt="">
+                        <h5 class="card-title" id="song_name"></h5>
+                        <div class="card-body">
+                            <a href="" id="full_version">Listen on Spotify</a>
+                            <audio src="" id="audio-player" autoplay controls onended="playNextSong()"></audio>
+                        </div>
+                    </div>
+                    <div class="accordion accordion-flush w-100" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Playlist
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <ul id="playlist-items">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <main class="artistandAlbum">
-                <div>
-                    <h2 class="text-center">Album By Artist</h2>
-                    <div class="grid d-flex" id="artistImageDiv">
-
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div>
-                    <h2 class="text-center">Top 10 Tracks</h2>
-                    <div class="grid d-flex" id="albumsImageDiv">
-
-                    </div>
-                </div>
-
-                <div class="container player">
-                    <div class="container-xl">
-                        <audio id="audio" controls autoplay>
-                        </audio>
-                    </div>
-                </div>
-                <div id="playListDiv">
-                    <button type="button" onclick="document.querySelector('#playListContent').innerHTML = ''">Clear
-                        Playlist</button>
-                    <ol id="playListContent"></ol>
-                </div>
-            </main>
         </div>
+
+        <script>
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            })
+
+        </script>
 
     </body>
 

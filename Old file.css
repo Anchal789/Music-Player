@@ -1,0 +1,255 @@
+* {
+    background-color: rgba(236, 236, 236, 0.654);
+}
+
+nav {
+    border: 3px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    margin: 1% 0 0 0;
+    padding: 0;
+    height: 100%;
+}
+
+nav * {
+    background-color: rgb(27, 27, 27);
+}
+
+.navbar-brand {
+    width: 20%;
+    color: rgb(255, 255, 255);
+}
+
+.artistandAlbum {
+    border: 2px solid rgb(120, 120, 120);
+}
+
+#artistImageDiv {
+    display: flex;
+    width: 100vw;
+    overflow-x: scroll;
+}
+
+#artistImageDiv::-webkit-scrollbar {
+    display: none;
+}
+
+.artistDiv {
+    border-radius: 30px;
+    margin: 0.5vw;
+    height: 30%;
+}
+
+.artistDiv h5 {
+    text-align: center;
+    background-color: none;
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+.artistImage {
+    border-radius: 30px;
+    width: 20vh;
+    padding: 10px;
+    background-color: rgb(80, 68, 102);
+}
+
+#albumsImageDiv {
+    width: 100vw;
+    overflow-x: scroll;
+}
+
+#albumsImageDiv a{
+    display: grid;
+    padding: 10px;
+}
+
+#albumsImageDiv::-webkit-scrollbar {
+    display: none;
+}
+
+.albumDiv {
+    height: 250px;
+    border-radius: 30px;
+    margin: 0.5vw;
+}
+
+.albumDiv h5 {
+    text-align: center;
+    background-color: none;
+    margin: 10px 0 0 0;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+
+.albumImage {
+    border-radius: 30px;
+    width: 20vh;
+    padding: 10px;
+    background-color: rgb(80, 68, 102);
+}
+
+.collapse a {
+    color: white;
+    font-size: larger;
+}
+
+.logo {
+    font-size: calc(16px + 1vw);
+}
+
+.logo:hover{
+    font-size: calc(16px + 1vw);
+    color: white;
+    text-decoration: none;
+}
+
+.logo:active{
+    font-size: calc(16px + 1vw);
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+#h5Div {
+    height: 9vw;
+    overflow-y: scroll;
+}
+
+#h5Div::-webkit-scrollbar {
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#playListDiv{
+    margin: 60px;
+    border: 1px solid gray;
+    padding: 10px;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#playListDiv button{
+    background-color: #56AEFF;
+    font-size: large;
+    padding: 10px;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid gray;
+}
+
+#playListContent{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+}
+
+.playBtn{
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+
+.playListBtn{
+    padding: 5px;
+    border: 1px dotted rgb(27, 27, 27);
+    border-radius: 10px;
+    background-color: rgb(157, 161, 248);
+}
+
+
+.songName{
+    color: rgb(0, 13, 255);
+    font-weight: bold;
+    font-style: italic;
+}
+
+audio {
+    width: 50%;
+    border-radius: 50px;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #56AEFF;
+}
+
+audio::-webkit-media-controls-mute-button {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+
+}
+
+audio::-webkit-media-controls-play-button {
+    border-radius: 50%;
+}
+
+audio::-webkit-media-controls-current-time-display {
+    color: rgb(0, 0, 0);
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+    color: rgb(0, 0, 0);
+}
+
+audio::-webkit-media-controls-timeline {
+    border-radius: 25px;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    border-radius: 25px;
+}
+
+.player{
+    display: flex;
+    margin: auto;
+    transform: translate(5%, 50%);
+    width: 100%;
+    padding: 10px;
+}
+
+#audio{
+    width: 100%;
+}
