@@ -491,7 +491,6 @@ audio::-webkit-media-controls-overflow-button::menu {
 #playlist_song_container {
     width: -webkit-fill-available;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
 }
