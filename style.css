@@ -254,6 +254,7 @@ li {
     overflow: scroll;
     width: 50%;
     padding: 10px;
+    height: 70%;
 }
 
 #listOfSongs {
